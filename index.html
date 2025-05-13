@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hai Nadwah 🩷</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0f172a;
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      max-width: 90%;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .popup {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid pink;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px pink;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .button {
+      margin-top: 1rem;
+      background: pink;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: hotpink;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h1>Hai Nadwah 🌧💗</h1>
+    <p>iya iya aku emg nyebelin... 🥺</p>
+    <p>tapi sumpah yaa aku tuh sayang banget sama kamu</p>
+    <p>aku gatau harus gimana lagi selain bikin ginian hehe 🙈</p>
+    <p>jangan manyun lagi dong, nanti aku ikut manyun 🥹</p>
+    <button class="button" onclick="alert('peluk virtual dari aku 😚💞')">mau peluk!</button>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 200);
+  </script>
+</body>
+</html>
